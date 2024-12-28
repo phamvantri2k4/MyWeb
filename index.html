@@ -1,16 +1,77 @@
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chúc Mừng Năm Mới</title>
-    <link rel="stylesheet" href="src/styles/styles.css">
-</head>
-<body>
-    <div id="container">
-        <h1 class="new-year-text">Chúc Mừng Năm Mới!</h1>
-        <canvas id="fireworks-canvas"></canvas>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question with Dynamic Buttons</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f9f9f9;
+      }
+      .container {
+        text-align: center;
+      }
+      h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+      .button {
+        display: inline-block;
+        width: 150px;
+        height: 50px;
+        line-height: 50px;
+        margin: 15px;
+        font-size: 18px;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        background-color: #ff6868;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .button:hover {
+        opacity: 0.8;
+      }
+      #no-button {
+        background-color: #ff6868;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Mình Quay Lại Nha ?</h1>
+      <button class="button" id="yes-button">Đồng ý</button>
+      <button class="button" id="no-button">Không đồng ý</button>
     </div>
-    <script src="src/index.js"></script>
-    <script src="src/fireworks.js"></script>
-</body>
+
+    <script>
+      const noButton = document.getElementById("no-button");
+      const yesButton = document.getElementById("yes-button");
+
+      // Chuyển đổi nút "Không đồng ý" thành "Đồng ý" khi di chuột
+      noButton.addEventListener("mouseover", () => {
+        noButton.textContent = "Đồng ý";
+      });
+
+      // Trả lại nội dung nút "Không đồng ý" khi rời chuột
+      noButton.addEventListener("mouseout", () => {
+        noButton.textContent = "Không đồng ý";
+      });
+
+      // Mở trang love.html khi nhấn bất kỳ nút nào
+      const redirectToLove = () => {
+        window.location.href = "loveu/love.html";
+      };
+
+      yesButton.addEventListener("click", redirectToLove);
+      noButton.addEventListener("click", redirectToLove);
+    </script>
+  </body>
 </html>
